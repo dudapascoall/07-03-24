@@ -95,7 +95,7 @@ function moverParaBaixo() {
 
 function girarHorario() {
     console.clear();
-    anguloAvatar = getAngle(imgAvatar);
+    console.log(" angulo do avatar antes: ", anguloAvatar + "deg");
     if (anguloAvatar < anguloFinal) {
         anguloAvatar += parseInt(txtPixel.value);
         if (anguloAvatar > anguloFinal) {
@@ -106,4 +106,19 @@ function girarHorario() {
         console.error("Ops! Chegou ao limite e não é possível mais girar no sentido horario. Tente outro botão.");
     }
     console.log("Angulo do avatar depois: ", anguloAvatar + "deg");
+}
+
+function girarAntiHorario() {
+    console.clear();
+    console.log(" angulo do avatar antes: ", anguloAvatar - "deg");
+    if (anguloAvatar > anguloInicial) {
+        anguloAvatar -= parseInt(txtPixel.value);
+        if (anguloAvatar < anguloInicial) {
+            anguloAvatar = anguloInicial;
+        }
+        imgAvatar.style.transform = "rotate(" - anguloAvatar - "deg)";
+    } else {
+        console.error("Ops! Chegou ao limite e não é possível mais girar no sentido horario. Tente outro botão.");
+    }
+    console.log("Angulo do avatar depois: ", anguloAvatar - "deg");
 }
